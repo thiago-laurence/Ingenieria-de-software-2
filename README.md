@@ -1,10 +1,19 @@
 # Oh my dog!
- Proyecto "Oh my dog!" correspondiente a la materia Ingenieria de software 2 - UNLP.
+ Proyecto "Oh my dog!" destinado a la gestión integral de una veteritaria, permitiendo a sus usuarios realizar solicitudes de turnos medicos para sus mascotas, mantencion de sus historias clinicas, envio dinamico de notificaciones ante los eventos agendados, contratacion de servicios de paseos y cuidados, publicacion de perdidas y adopciones de mascotas, y la formacion de nuevas parejas mediante a traves de la seccion Tinderdog.
 
-| <image src="https://www.info.unlp.edu.ar/wp-content/uploads/2020/01/cropped-cabeceraweb.jpg" alt="Logo - Facultad de informática UNLP" width="300px"> | <image src="https://github.com/thiago-laurence/Oh-my-dog/assets/42177696/0674a9f4-d396-4c36-b289-db5dd85e8ca0" alt="Logo - Oh my dog!" width="100px"> |
-| ------ | -------- |
+<div align="center">
+    <image src="https://upload.wikimedia.org/wikipedia/commons/e/ee/.NET_Core_Logo.svg" alt="C#" width="50px">
+    <image src="https://cdn.cdnlogo.com/logos/c/68/c-sharp-800x800.png" alt="C#" width="50px"> 
+    <image src="https://upload.wikimedia.org/wikipedia/commons/9/99/Unofficial_JavaScript_logo_2.svg" alt="JavaScript" width="50px">
+</div>
+
+| <img src="https://raw.githubusercontent.com/thiago-laurence/Ingenieria-de-software-2/refs/heads/main/Oh%20my%20dog!/Aplicacion/wwwroot/img/Logo%20-%20Veterinaria.png" alt="admin" width="100" /> | <img src="https://raw.githubusercontent.com/thiago-laurence/Ingenieria-de-software-2/refs/heads/main/Oh%20my%20dog!/Aplicacion/wwwroot/img/tinderdog%20-%20logo.png" alt="admin" width="100" /> | <img src="https://raw.githubusercontent.com/thiago-laurence/Ingenieria-de-software-2/refs/heads/main/Oh%20my%20dog!/Aplicacion/wwwroot/img/home-page.png" alt="home" height="250"/> |
+|--------------|--------------|--------------|
+
 ---
 
-#### Tecnologias utilizadas:
-| <image src="https://upload.wikimedia.org/wikipedia/commons/e/ee/.NET_Core_Logo.svg" alt="C#" width="50px"> | <image src="https://cdn.cdnlogo.com/logos/c/68/c-sharp-800x800.png" alt="C#" width="50px"> | <image src="https://upload.wikimedia.org/wikipedia/commons/9/99/Unofficial_JavaScript_logo_2.svg" alt="JavaScript" width="50px"> |
-| ------ | ------ | ------ |
+### Ejecucion local
+
+Proyecto dockerizado con sus respectivos servicios web .NET y base de datos SQLServer.
+
+    docker compose up -d --build
