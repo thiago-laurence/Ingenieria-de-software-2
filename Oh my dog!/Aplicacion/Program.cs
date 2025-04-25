@@ -2,8 +2,8 @@ using Aplicacion.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Hangfire;
-
 using Hangfire.SqlServer;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -25,6 +25,31 @@ builder.Services.AddHangfire(x => x.UseSqlServerStorage(builder.Configuration.Ge
 builder.Services.AddHangfireServer();
 
 var app = builder.Build();
+
+using (var scope = app.Services.CreateScope())
+{
+    var dbContext = scope.ServiceProvider.GetRequiredService<OhmydogdbContext>();
+
+    var retries = 10;
+    while (retries > 0)
+    {
+        try
+        {
+            Console.WriteLine("⚙️ Aplicando migraciones...");
+            dbContext.Database.Migrate();
+            Console.WriteLine("✅ Migraciones aplicadas correctamente.");
+            DbInitializer.Seed(dbContext);
+            break;
+        }
+        catch (Exception ex)
+        {
+            retries--;
+            Console.WriteLine($"⏳ Esperando conexión a SQL Server... intentos restantes: {retries}");
+            Console.WriteLine($"🔁 Error: {ex.Message}");
+            Thread.Sleep(3000);
+        }
+    }
+}
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())

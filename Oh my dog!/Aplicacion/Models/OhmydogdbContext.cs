@@ -161,6 +161,8 @@ public partial class OhmydogdbContext : DbContext
         {
             entity.ToTable("ModalidadCuidador");
 
+            entity.HasKey(e => e.Id).HasName("PK_ModalidadCuidador");
+
             entity.HasOne(d => d.IdCuidadorNavigation).WithMany(p => p.ModalidadCuidadors)
                 .HasForeignKey(d => d.IdCuidador)
                 .HasConstraintName("FK_ModalidadCuidador_Cuidadores");
@@ -346,7 +348,7 @@ public partial class OhmydogdbContext : DbContext
 
         modelBuilder.Entity<TipoModalidad>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK_ModalidadCuidador");
+            entity.HasKey(e => e.Id).HasName("PK_TipoModalidad");
 
             entity.ToTable("TipoModalidad");
 
